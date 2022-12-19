@@ -131,7 +131,7 @@ app.get("/logout/:id",async(req,res)=>{
 // Port and Url setup
 const PORT=process.env.PORT;
 const connect = async ()=>{
-    return new mongoose.connect("mongodb://localhost:27017/BlogApp")
+    return new mongoose.connect("mongodb+srv://damanjot6767:damanjot6767@cluster0.5qggddx.mongodb.net/Cluster0?retryWrites=true&w=majority")
 }
 
 app.listen(PORT,async()=>{
