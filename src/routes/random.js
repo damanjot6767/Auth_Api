@@ -17,10 +17,11 @@ RandomWord.post('/level',async function(req, res) {
     } 
 });
 
-RandomWord.get('/random',function(req, res) {
+RandomWord.post('/random',function(req, res) {
     const{level}=req.body;
     try{
-        const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        console.log(level)
+        const characters ='abcdefghijklmnopqrstuvwxyz0123456789';
         const n = characters.length;
         let word=""
         if(level==="low"){
@@ -62,6 +63,16 @@ RandomWord.post('/score/:id',async(req,res)=>{
         
     }
 })
-
+ 
+RandomWord.get('/score/:id',async(req,res)=>{
+    const{id}=req.params;
+    const{score,level}=req.body;
+    try {
+        let user = await UserModel.findOne({_id:id});
+        return res.send(user.score)
+    } catch (error) {
+        
+    }
+})
 
 module.exports = RandomWord;
