@@ -75,4 +75,4 @@ RandomWord.get('/score/:id',async(req,res)=>{
     }
 })
 
-module.exports = RandomWord;
+module.exports = RandomWord
